@@ -29,10 +29,12 @@ def calculate():
         redditor = request.form['redditor']
         sorty = request.form['sorting']
 
-        common_word, number, comment_count = main_backend.main_backend(redditor, sorty)
+        word, word_count, comment_count = main_backend.main_backend(redditor, sorty)
+        data = {'word': word.title(),
+                'word_count': word_count,
+                'comment_count': comment_count,
+                'redditor': redditor,
+                'sorty': sorty
+                }
 
-        return render_template('basic.html',
-                               common_word=common_word.title(),
-                               number=number,
-                               total_comments=comment_count,
-                               redditor=redditor)
+        return render_template('basic.html', data=data)

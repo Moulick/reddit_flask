@@ -8,10 +8,10 @@
 <body>
 <div>Here is the result of the redditor you requested</div>
 <div>
-    Most commonly used word in {{ total_comments }} by {{ redditor }} is '{{ common_word }}'
+    Most commonly used word by {{ data['redditor'] }} is {{ data['word'] }}, which is used {{ data['word_count'] }} times'
 </div>
 <div>
-    '{{ common_word }}' was used {{ number }} of times
+    This data is based of {{ data['comment_count'] }} sorted by {{ data['sorty'] }}
 </div>
 </body>
 </html>
