@@ -38,3 +38,8 @@ def calculate():
                 }
 
         return render_template('basic.html', data=data)
+
+
+@app.route('/hello')
+def hello_world():
+    return 'Hello World!'
