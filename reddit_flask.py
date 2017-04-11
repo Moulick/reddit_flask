@@ -8,4 +8,8 @@ wsgi_app = app.wsgi_app
 from routes import *
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port='5001')
+    import platform
+    if platform.system() == 'Windows':
+        app.run(host='localhost', port='5001')
+    elif platform.system() == 'Linux':
+        app.run(host='0.0.0.0', port='5001')

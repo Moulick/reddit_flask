@@ -28,7 +28,7 @@ def word_finder(comments):
     for comment in comments:
         comment_count += 1
         # print(comment_count)
-        print(comment)
+        print(comment.body)
         comment_tokens = preprocess(comment.body)
 
         for wordy in comment_tokens:
