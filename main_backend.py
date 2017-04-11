@@ -9,7 +9,7 @@ import database_things
 import usernamevalidator
 
 
-timediff = 600
+timediff = 86400
 
 reddit = praw.Reddit(client_id='JLn24zAHmQ3iPg',
                      client_secret='KnsAYz4tTBdSpX7LMB1KbjG998M',
@@ -19,17 +19,6 @@ reddit = praw.Reddit(client_id='JLn24zAHmQ3iPg',
 
 print('Read only:', reddit.read_only)  # Check if read_only
 print('Ok')
-
-
-def data_fetch(redditor, sorty):
-    comment_contructor = comments_all(redditor=redditor, sorty=sorty)
-
-    word_dict, comment_count = comment_processing.word_finder(comment_contructor)
-
-    word = max(word_dict, key=word_dict.get)
-    word_count = word_dict[word]
-
-    return word, word_count, comment_count
 
 
 def comments_all(redditor, sorty):
@@ -46,6 +35,19 @@ def comments_all(redditor, sorty):
         raise Exception('Unknown Sorting')
 
     return comments
+
+
+def data_fetch(redditor, sorty):
+    comment_contructor = comments_all(redditor=redditor, sorty=sorty)
+
+    word_dict, comment_count = comment_processing.word_finder(comment_contructor)
+
+    word = max(word_dict, key=word_dict.get)
+    word_count = word_dict[word]
+
+    return word, word_count, comment_count
+
+
 
 
 def main_backend(redditor, sorty):
