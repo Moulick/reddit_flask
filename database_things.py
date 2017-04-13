@@ -64,7 +64,7 @@ def updatedb(redditor, word, word_count, comment_count, sorty):
 
 def addtodb(redditor, word, word_count, comment_count, sorty):
     collection = database['word_analysis']
-    if sorty == 'top' or 'new' or 'controversial' or 'hot':
+    if sorty in ['controversial', 'hot', 'new', 'top']:
         try:
             post = {
                 'redditor': redditor,
