@@ -61,4 +61,6 @@ target/
 /.ipynb_checkpoints/
 
 .idea/
+
 /uwsgi.sock
+.python-version
